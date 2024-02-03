@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Cart</title>
+</head>
+<body>
+<h1>E-commerce Cart</h1>
+
+<button onclick="createCart()">Create Cart</button>
+<br><br>
+
+<label for="cartId">Cart ID:</label>
+<input type="text" id="cartId" placeholder="Enter Cart ID">
+<button onclick="getCart()">Get Cart</button>
+<br><br>
+<form onsubmit="return validateForm()">
+    <label for="productId">Product ID:</label>
+    <input type="number" id="productId" placeholder="Enter Product ID">
+    <label for="productName">Product Name:</label>
+    <input type="text" id="productName" placeholder="Enter Product Name">
+    <label for="productAmount">Product Amount:</label>
+    <input type="number" id="productAmount" min="0" placeholder="Enter Product Amount">
+    <button onclick="addProductToCart()">Add Product to Cart</button>
+</form>
+
+<script>
+    function validateForm() {
+        var quantityInput = document.getElementById('productQuantity');
+
+        return quantityInput.value >= 0;
+
+    }
+</script>
+<br><br>
+
+<label for="deleteCartId">Cart ID to Delete:</label>
+<input type="text" id="deleteCartId" placeholder="Enter Cart ID to Delete">
+<button onclick="deleteCart()">Delete Cart</button>
+</body>
+
+<script src="script.js"></script>
+</html>
