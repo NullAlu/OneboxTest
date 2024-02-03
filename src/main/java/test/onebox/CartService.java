@@ -1,5 +1,6 @@
 package test.onebox;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -33,5 +34,12 @@ public class CartService {
 
     public void deleteCart(String cartId) {
         carts.remove(cartId);
+    }
+
+    // Scheduled task to remove expired carts
+    @Scheduled(fixedDelay = 600000) // 10 minutes in milliseconds
+    public void removeExpiredCarts() {
+        LocalDateTime currentTime = LocalDateTime.now();
+        carts.entrySet().removeIf(entry -> currentTime.isAfter(entry.getValue().getExpirationTime()));
     }
 }

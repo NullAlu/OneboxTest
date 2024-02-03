@@ -29,8 +29,17 @@ function addProductToCart() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(product)
-    }).then(() => alert('Product added to cart'));
+    })
+        .then(response => {
+            if (!cartId || !productId || !productName || isNaN(productAmount)) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(() => alert('Product added to cart'))
+        .catch(error => console.error('Error adding product to cart:', error));
 }
+
 
 function deleteCart() {
     const cartId = document.getElementById('deleteCartId').value;

@@ -15,7 +15,7 @@
 <input type="text" id="cartId" placeholder="Enter Cart ID">
 <button onclick="getCart()">Get Cart</button>
 <br><br>
-<form onsubmit="return validateForm()">
+<form>
     <label for="productId">Product ID:</label>
     <input type="number" id="productId" placeholder="Enter Product ID">
     <label for="productName">Product Name:</label>
@@ -25,14 +25,6 @@
     <button onclick="addProductToCart()">Add Product to Cart</button>
 </form>
 
-<script>
-    function validateForm() {
-        var quantityInput = document.getElementById('productQuantity');
-
-        return quantityInput.value >= 0;
-
-    }
-</script>
 <br><br>
 
 <label for="deleteCartId">Cart ID to Delete:</label>
@@ -40,5 +32,5 @@
 <button onclick="deleteCart()">Delete Cart</button>
 </body>
 
-<script src="script.js"></script>
+<script src="Script.js"></script>
 </html>
