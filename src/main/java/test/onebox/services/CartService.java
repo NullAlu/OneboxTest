@@ -1,7 +1,10 @@
-package test.onebox;
+package test.onebox.services;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import test.onebox.objects.Cart;
+import test.onebox.objects.Product;
+
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +15,7 @@ public class CartService {
     private Map<String, Cart> carts = new HashMap<>();
 
     public String createCart() {
-        String cartId = String.valueOf(UUID.randomUUID());
+        String cartId = UUID.randomUUID().toString();
         Cart cart = new Cart();
         cart.setId(cartId);
         cart.setProducts(new HashMap<>());
@@ -36,7 +39,6 @@ public class CartService {
         carts.remove(cartId);
     }
 
-    // Scheduled task to remove expired carts
     @Scheduled(fixedDelay = 600000) // 10 minutes in milliseconds
     public void removeExpiredCarts() {
         LocalDateTime currentTime = LocalDateTime.now();

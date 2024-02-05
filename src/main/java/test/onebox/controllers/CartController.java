@@ -1,7 +1,10 @@
-package test.onebox;
+package test.onebox.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import test.onebox.objects.Cart;
+import test.onebox.services.CartService;
+import test.onebox.objects.Product;
 
 @RestController
 @RequestMapping("/cart")

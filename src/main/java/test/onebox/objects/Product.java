@@ -1,4 +1,4 @@
-package test.onebox;
+package test.onebox.objects;
 
 public class Product {
     private int id;
