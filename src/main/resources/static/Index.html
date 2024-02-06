@@ -1,34 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce Cart</title>
-</head>
-<body>
-<h1>E-commerce Cart</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="mystyle.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <title>E-commerce Cart</title>
+    </head>
 
-<button onclick="createCart()">Create Cart</button>
-<br><br>
+    <body>
+        <div><h1>E-commerce Cart</h1></div>
+        <button class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3" onclick="createCart()">Create Cart</button>
+        <br><br>
 
-<label for="cartId">Cart ID:</label>
-<input type="text" id="cartId" placeholder="Enter Cart ID">
-<button onclick="getCart()">Get Cart</button>
-<br><br>
+        <div>
+            <label for="cartId">Cart ID:</label>
+            <input type="text" id="cartId" placeholder="Enter Cart ID">
+            <button onclick="getCart()">Get Cart</button>
+        <br><br>
+        </div>
 
-<label for="productId">Product ID:</label>
-<input type="number" id="productId" min="0" placeholder="Enter Product ID">
-<label for="productDescription">Product Description:</label>
-<input type="text" id="productDescription" placeholder="Enter Description">
-<label for="productAmount">Product Amount:</label>
-<input type="number" id="productAmount" min="0" placeholder="Enter Product Amount">
-<button onclick="addProductToCart()">Add Product to Cart</button>
-<br><br>
+        <div>
+            <label for="productId">Product ID:</label>
+            <input type="number" id="productId" min="0" placeholder="Enter Product ID">
+            <label for="productDescription">Product Description:</label>
+            <input type="text" id="productDescription" placeholder="Enter Description">
+            <label for="productAmount">Product Amount:</label>
+            <input type="number" style="width: 220px;" id="productAmount" min="0" placeholder="Enter Product Amount">
+            <button onclick="addProductToCart()">Add Product to Cart</button>
+            <br><br>
+        </div>
 
-<label for="deleteCartId">Cart ID to Delete:</label>
-<input type="text" id="deleteCartId" placeholder="Enter Cart ID to Delete">
-<button onclick="deleteCart()">Delete Cart</button>
-</body>
+        <div>
+            <label for="deleteCartId">Cart ID to Delete:</label>
+            <input type="text" id="deleteCartId" style="width: 220px;" placeholder="Enter Cart ID to Delete">
+            <button onclick="deleteCart()">Delete Cart</button>
+        </div>
 
-<script src="Script.js"></script>
+    </body>
+
+    <script src="Script.js"></script>
 </html>
