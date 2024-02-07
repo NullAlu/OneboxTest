@@ -5,7 +5,9 @@ public class Product {
     private String description;
     private double amount;
 
-    // Constructor, getters, and setters
+
+    public Product(String number, String testProduct, double v) {
+    }
 
     public int getId() {
         return id;

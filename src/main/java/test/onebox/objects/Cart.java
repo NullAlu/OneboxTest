@@ -9,8 +9,6 @@ public class Cart {
     private Map<Integer, Product> products;
     private LocalDateTime expirationTime;
 
-    // Constructor, getters, and setters
-
     public String getId() {
         return id;
     }

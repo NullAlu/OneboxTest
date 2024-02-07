@@ -30,7 +30,7 @@ public class CartService {
 
     public void addProductToCart(String cartId, Product product) {
         Cart cart = carts.get(cartId);
-        if (cart != null && LocalDateTime.now().isBefore(cart.getExpirationTime())) {
+        if (cart != null) {
             cart.getProducts().put(product.getId(), product);
         }
     }
@@ -39,8 +39,8 @@ public class CartService {
         carts.remove(cartId);
     }
 
-    @Scheduled(fixedDelay = 600000) // 10 minutes in milliseconds
-    public void removeExpiredCarts() {
+    @Scheduled(fixedDelay = 600000)
+    public void removeExpiredCarts() { // TTL of 10 minutes
         LocalDateTime currentTime = LocalDateTime.now();
         carts.entrySet().removeIf(entry -> currentTime.isAfter(entry.getValue().getExpirationTime()));
     }
