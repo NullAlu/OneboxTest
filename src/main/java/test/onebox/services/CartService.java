@@ -15,11 +15,11 @@ public class CartService {
     private Map<String, Cart> carts = new HashMap<>();
 
     public String createCart() {
-        String cartId = UUID.randomUUID().toString();
+        String cartId = UUID.randomUUID().toString(); //Unique ID
         Cart cart = new Cart();
         cart.setId(cartId);
         cart.setProducts(new HashMap<>());
-        cart.setExpirationTime(LocalDateTime.now().plusMinutes(10));
+        cart.setExpirationTime(LocalDateTime.now().plusMinutes(10)); //Expiration set to 10 minutes
         carts.put(cartId, cart);
         return cartId;
     }
@@ -39,9 +39,4 @@ public class CartService {
         carts.remove(cartId);
     }
 
-    @Scheduled(fixedDelay = 600000)
-    public void removeExpiredCarts() { // TTL of 10 minutes
-        LocalDateTime currentTime = LocalDateTime.now();
-        carts.entrySet().removeIf(entry -> currentTime.isAfter(entry.getValue().getExpirationTime()));
-    }
 }
